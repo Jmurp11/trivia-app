@@ -6,7 +6,7 @@ import { ModalController } from '@ionic/angular';
 enum MessageOpts {
   PERFECT = 'Trivia Master! Congrats!',
   ABOVE_AVG = 'Impressive!',
-  BELOW_AVG = 'Better luck next time!',
+  BELOW_AVG = 'Feels bad man...',
 }
 
 @Component({
@@ -22,6 +22,7 @@ export class ResultsComponent implements OnInit {
   };
   score: number;
   message: string;
+  isPassing: boolean;
 
   constructor(
     private router: Router,
@@ -31,6 +32,7 @@ export class ResultsComponent implements OnInit {
     this.result = this.router.getCurrentNavigation().extras.state.result;
     this.score = (this.result.score / this.result.length) * 100;
     this.message = this.setMessage(this.score);
+    this.isPassing = this.score >= 70 ? true : false;
   }
 
   setMessage(score: number) {

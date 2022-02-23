@@ -1,21 +1,19 @@
 <ion-content [fullscreen]="true">
+  <ion-card class="center padding">
+    <div class="column">
+      <div [hidden]="!isPassing" class="center img-container">
+        <img class="img" src="../../../assets/trophy.svg" />
+      </div>
+      <div [hidden]="isPassing" class="center img-container">
+        <img class="img" src="../../../assets/pepe.svg" />
+      </div>
+      <div class="center column">
+        <h1>{{ message }}</h1>
+        <h3>{{ score }} % Score</h3>
+      </div>
+    </div>
+  </ion-card>
   <div class="center">
-    <img class="img" src="../../../assets/owl.svg">
-  </div>
-  <div class="center">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>
-          Quiz Results
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <div class="center">
-          <h2>{{ message }}</h2>
-          <div>{{ score }} % Score</div>
-        </div>
-      </ion-card-content>
-      <ion-button expand="block" (click)="backToHome()">Return Home</ion-button>
-    </ion-card>
+    <ion-button size="large" (click)="backToHome()">Return Home</ion-button>
   </div>
 </ion-content>

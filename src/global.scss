@@ -26,12 +26,24 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 .center {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-evenly;
 }
 
 .img {
     height: 200px;
     width: 400px;
+}
+
+.img-container {
+    padding: .5em;
 }
