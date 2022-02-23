@@ -1,0 +1,15 @@
+<div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ question.category }}</ion-card-subtitle>
+      <ion-card-title>{{ question.question }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div *ngFor="let a of answerList">
+        <ion-button expand="block" (click)="answerSelected(a)">{{ utilities.cleanText(a) }}</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+</div>
