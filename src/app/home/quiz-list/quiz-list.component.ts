@@ -44,7 +44,7 @@ export class QuizListComponent implements OnInit {
       .getQuiz(selection.id, this.difficulty)
       .subscribe((q: any) => {
         this.router.navigate([`/quiz/${selection.value}`], {
-          state: { quiz: q.results },
+          state: { quiz: q.results, triviaType: selection.value },
         });
       });
 

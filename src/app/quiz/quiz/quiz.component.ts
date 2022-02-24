@@ -18,15 +18,16 @@ export class QuizComponent implements OnInit {
     selected: string;
     correct: string;
   }[] = [];
+  triviaType: string;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.score = 0;
     this.questions = this.router.getCurrentNavigation().extras.state.quiz;
+    this.triviaType = this.router.getCurrentNavigation().extras.state.triviaType;
     this.quizLength = this.questions.length;
     this.setCurrentQuestion();
-    console.log(this.questions);
   }
 
   questionAnswered(event: any): void {
