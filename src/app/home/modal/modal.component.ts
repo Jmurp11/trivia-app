@@ -9,7 +9,7 @@ import { Quiz } from '../quiz.service';
 })
 export class ModalComponent implements OnInit {
   @Input()
-  quizList: Quiz[];
+  list: Quiz[];
 
   constructor(private modalController: ModalController) {}
 

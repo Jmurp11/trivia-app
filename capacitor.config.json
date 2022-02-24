@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
 	"appName": "trivaster",
-	"webDir": "www",
+	"webDir": "public",
 	"bundledWebRuntime": false
 }
