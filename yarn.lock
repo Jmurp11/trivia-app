@@ -1576,11 +1576,6 @@
   resolved "https://registry.yarnpkg.com/@capacitor/status-bar/-/status-bar-1.0.7.tgz#98d5758f3db12fbb3d5bf895a01d7de903dd6129"
   integrity sha512-Z4flqIGCeVDQ/IwFZEjHS0uLun2r70CG+6bs24ENKsSnirXFXvmzDOY60qff9eywP6pNLYqgcSaznnQ0eIu3Vw==
 
-"@codewithdan/observable-store@^2.2.14":
-  version "2.2.14"
-  resolved "https://registry.yarnpkg.com/@codewithdan/observable-store/-/observable-store-2.2.14.tgz#d28a0f20c4589d68c6babe85d8c63fc407dc778b"
-  integrity sha512-5W7bdbH1B3QI/Y270ohCKIn6+C1CDk0xXCqdY40GwkTLD86WLhElj/J1swG6Uby96uUaPorTmMpcBiT5SEhNOw==
-
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
