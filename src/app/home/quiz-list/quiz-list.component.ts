@@ -34,7 +34,7 @@ export class QuizListComponent implements OnInit {
   ngOnInit() {
     this.quizList = this.quizList
       .map((q) => ({ id: q.id, value: this.utitlities.cleanText(q.value) }))
-      .sort((a, b) => b.value.localeCompare(a.value));
+      .sort((a, b) => a.value.localeCompare(b.value));
     this.difficulty = Levels.EASY;
     this.difficultyOpts = [Levels.EASY, Levels.MEDIUM, Levels.HARD];
   }
