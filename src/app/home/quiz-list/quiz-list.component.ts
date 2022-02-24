@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Quiz, QuizService } from '../quiz.service';
 import { UtilitiesService } from '../../utilities.service';
 import { ModalController } from '@ionic/angular';
+import { getAnalytics, logEvent } from 'firebase/analytics';
+
 
 enum Levels {
   EASY='easy',
@@ -31,7 +33,8 @@ export class QuizListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.quizList = this.quizList.map((q) => ({ id: q.id, value: this.utitlities.cleanText(q.value) }));
+    this.quizList = this.quizList.map((q) => ({ id: q.id, value: this.utitlities.cleanText(q.value) }))
+      .sort();
     this.difficulty = Levels.EASY;
     this.difficultyOpts = [
       Levels.EASY,
@@ -47,6 +50,8 @@ export class QuizListComponent implements OnInit {
       });
     });
 
+    const analytics = getAnalytics();
+    logEvent(analytics, 'start game', { trivia: selection.value, difficulty: this.difficulty });
     this.modalController.dismiss();
   }
 }
