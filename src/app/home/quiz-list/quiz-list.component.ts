@@ -6,11 +6,10 @@ import { UtilitiesService } from '../../utilities.service';
 import { ModalController } from '@ionic/angular';
 import { getAnalytics, logEvent } from 'firebase/analytics';
 
-
 enum Levels {
-  EASY='easy',
-  MEDIUM='medium',
-  HARD='hard'
+  EASY = 'easy',
+  MEDIUM = 'medium',
+  HARD = 'hard',
 }
 
 @Component({
@@ -33,25 +32,27 @@ export class QuizListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.quizList = this.quizList.map((q) => ({ id: q.id, value: this.utitlities.cleanText(q.value) }))
-      .sort();
+    this.quizList = this.quizList
+      .map((q) => ({ id: q.id, value: this.utitlities.cleanText(q.value) }))
+      .sort((a, b) => b.value.localeCompare(a.value));
     this.difficulty = Levels.EASY;
-    this.difficultyOpts = [
-      Levels.EASY,
-      Levels.MEDIUM,
-      Levels.HARD
-    ];
+    this.difficultyOpts = [Levels.EASY, Levels.MEDIUM, Levels.HARD];
   }
 
   selectQuizType(selection: Quiz): void {
-    this.quizService.getQuiz(selection.id, this.difficulty).subscribe((q: any) => {
-      this.router.navigate([`/quiz/${selection.value}`], {
-        state: { quiz: q.results },
+    this.quizService
+      .getQuiz(selection.id, this.difficulty)
+      .subscribe((q: any) => {
+        this.router.navigate([`/quiz/${selection.value}`], {
+          state: { quiz: q.results },
+        });
       });
-    });
 
     const analytics = getAnalytics();
-    logEvent(analytics, 'start game', { trivia: selection.value, difficulty: this.difficulty });
+    logEvent(analytics, 'start game', {
+      trivia: selection.value,
+      difficulty: this.difficulty,
+    });
     this.modalController.dismiss();
   }
 }
