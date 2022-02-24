@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     public routerOutlet: IonRouterOutlet,
     private modalController: ModalController
   ) {
-    this.title = 'Trivia App';
+    this.title = 'Trivaster';
   }
 
   ngOnInit() {
