@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ triviaType }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-question [question]="currentQuestion" (newAnswerEvent)="questionAnswered($event)"></app-question>
+</ion-content>

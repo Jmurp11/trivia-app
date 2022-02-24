@@ -1,0 +1,24 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { ResultComponent } from './result.component';
+import { ResultsComponent } from './results/results.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ResultComponent,
+    children: [
+        {
+          path: '',
+          component: ResultsComponent
+        }
+      ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class ResultRoutingModule {}

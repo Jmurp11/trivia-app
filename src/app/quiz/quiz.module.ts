@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { QuizPageRoutingModule } from './quiz-routing.module';
+
+import { QuizPage } from './quiz.page';
+import { QuestionComponent } from './question/question.component';
+import { QuizComponent } from './quiz/quiz.component';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    QuizPageRoutingModule,
+  ],
+  declarations: [QuizPage, QuizComponent, QuestionComponent]
+})
+export class QuizPageModule {}
