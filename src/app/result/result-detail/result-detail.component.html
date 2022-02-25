@@ -14,13 +14,13 @@
 
       <ion-card-content>
         <div>
-          <ion-button
+          <ion-button class="text-wrap"
             [hidden]="d.selected === d.correct"
             expand="block"
             color="danger"
             >{{ d.selected }}</ion-button
           >
-          <ion-button expand="block" color="success">{{
+          <ion-button class="text-wrap" expand="block" color="success">{{
             d.correct
           }}</ion-button>
         </div>
