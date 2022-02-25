@@ -1,58 +1,32 @@
-/* eslint-disable @typescript-eslint/naming-convention */
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Quiz, QuizService } from '../quiz.service';
-import { UtilitiesService } from '../../utilities.service';
-import { ModalController } from '@ionic/angular';
-import { getAnalytics, logEvent } from 'firebase/analytics';
-
-enum Levels {
-  EASY = 'easy',
-  MEDIUM = 'medium',
-  HARD = 'hard',
-}
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Quiz } from '../quiz.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-quiz-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './quiz-list.component.html',
   styleUrls: ['./quiz-list.component.scss'],
 })
 export class QuizListComponent implements OnInit {
   @Input()
-  quizList: Quiz[];
+  quizList$: Observable<Quiz[]>;
 
-  difficulty: string;
-  difficultyOpts: string[];
+  @Output()
+  quizSelect = new EventEmitter<Quiz>();
 
-  constructor(
-    private router: Router,
-    private quizService: QuizService,
-    public utitlities: UtilitiesService,
-    private modalController: ModalController
-  ) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.quizList = this.quizList
-      .map((q) => ({ id: q.id, value: this.utitlities.cleanText(q.value) }))
-      .sort((a, b) => a.value.localeCompare(b.value));
-    this.difficulty = Levels.EASY;
-    this.difficultyOpts = [Levels.EASY, Levels.MEDIUM, Levels.HARD];
-  }
+  ngOnInit() {}
 
-  selectQuizType(selection: Quiz): void {
-    this.quizService
-      .getQuiz(selection.id, this.difficulty)
-      .subscribe((q: any) => {
-        this.router.navigate([`/quiz/${selection.value}`], {
-          state: { quiz: q.results, triviaType: selection.value },
-        });
-      });
-
-    const analytics = getAnalytics();
-    logEvent(analytics, 'start game', {
-      trivia: selection.value,
-      difficulty: this.difficulty,
-    });
-    this.modalController.dismiss();
+  quizSelected(quiz: Quiz) {
+    this.quizSelect.emit(quiz);
   }
 }

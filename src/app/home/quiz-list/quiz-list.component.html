@@ -1,13 +1,5 @@
-<div class="container">
-  <ion-item>
-    <ion-label>Difficulty</ion-label>
-    <ion-select [(ngModel)]="difficulty">
-      <ion-select-option *ngFor="let opt of difficultyOpts" [value]="opt">
-        {{opt | titlecase}}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
-</div>
-<div *ngFor="let quiz of quizList">
-  <ion-button expand="block" (click)="selectQuizType(quiz)">{{ quiz.value }}</ion-button>
+<div *ngFor="let quiz of quizList$ | async">
+  <ion-button expand="block" (click)="quizSelected(quiz)">{{
+    quiz.value
+  }}</ion-button>
 </div>

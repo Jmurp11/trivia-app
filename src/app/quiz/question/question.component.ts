@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -18,6 +19,7 @@ interface OutputVal {
 
 @Component({
   selector: 'app-question',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
 })

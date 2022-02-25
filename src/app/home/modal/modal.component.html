@@ -1,8 +1,20 @@
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-button (click)="dismiss()"><ion-icon slot="icon-only" name="close"></ion-icon></ion-button>
-  </ion-buttons>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()"><ion-icon slot="icon-only" name="close"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-item>
+    <ion-label>Difficulty</ion-label>
+    <ion-select [(ngModel)]="difficulty">
+      <ion-select-option *ngFor="let opt of difficultyOpts" [value]="opt">
+        {{opt | titlecase}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-header>
+
 <ion-content [fullscreen]="true">
-  <app-quiz-list [quizList]="list"></app-quiz-list>
+  <app-quiz-list [quizList$]="quizList$" (quizSelect)="quizSelected($event)"></app-quiz-list>
 </ion-content>

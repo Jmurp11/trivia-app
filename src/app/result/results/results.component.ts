@@ -2,12 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonRouterOutlet, ModalController } from '@ionic/angular';
+import { getAnalytics, logEvent } from 'firebase/analytics';
 import { ResultDetailComponent } from '../result-detail/result-detail.component';
 
 enum MessageOpts {
   PERFECT = 'Trivia Master! Congrats!',
   ABOVE_AVG = 'Impressive!',
-  BELOW_AVG = 'Feels bad man...',
+  BELOW_AVG = 'Might be time to start studying...',
+  BAD = 'Feels bad man...',
 }
 
 @Component({
@@ -28,7 +30,8 @@ export class ResultsComponent implements OnInit {
   }[];
   score: number;
   message: string;
-  isPassing: boolean;
+  isPassing: string;
+  messageOpts: string[] = [];
 
   constructor(
     private router: Router,
@@ -41,18 +44,23 @@ export class ResultsComponent implements OnInit {
     this.details = this.router.getCurrentNavigation().extras.state.details;
     this.score = (this.result.score / this.result.length) * 100;
     this.message = this.setMessage(this.score);
-    this.isPassing = this.score >= 70 ? true : false;
+    this.messageOpts = [
+      MessageOpts.PERFECT,
+      MessageOpts.ABOVE_AVG,
+      MessageOpts.BELOW_AVG,
+      MessageOpts.BAD
+    ];
   }
 
   setMessage(score: number) {
     if (score === 100) {
       return MessageOpts.PERFECT;
-    } else if (score >= 70) {
+    } else if (score >= 80 && score < 100) {
       return MessageOpts.ABOVE_AVG;
-    } else if (score < 70) {
+    } else if (score >= 60 && score < 80) {
       return MessageOpts.BELOW_AVG;
     } else {
-      return MessageOpts.BELOW_AVG;
+      return MessageOpts.BAD;
     }
   }
 
@@ -65,6 +73,10 @@ export class ResultsComponent implements OnInit {
         details: this.details,
       },
     });
+
+    const analytics = getAnalytics();
+    logEvent(analytics, 'check results');
+
     return await modal.present();
   }
 

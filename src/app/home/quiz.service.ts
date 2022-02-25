@@ -45,8 +45,8 @@ export class QuizService {
       { id: 27, value: 'Animals' },
       { id: 28, value: 'Vehicles' },
       { id: 29, value: 'Entertainment: Comics' },
-      { id: 31, value: 'Entertainment: Japanese Anime &amp; Manga' },
-      { id: 32, value: 'Entertainment: Cartoon &amp; Animations' },
+      { id: 31, value: 'Entertainment: Japanese Anime & Manga' },
+      { id: 32, value: 'Entertainment: Cartoon & Animations' },
     ];
   }
 }

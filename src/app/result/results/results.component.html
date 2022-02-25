@@ -1,10 +1,16 @@
 <ion-content [fullscreen]="true">
   <ion-card class="center padding">
     <div class="column">
-      <div [hidden]="!isPassing" class="center img-container">
+      <div [hidden]="!(message === messageOpts[0])" class="center img-container">
         <img class="img" src="../../../assets/trophy.svg" />
       </div>
-      <div [hidden]="isPassing" class="center img-container">
+      <div [hidden]="!(message === messageOpts[1])" class="center img-container">
+        <img class="img" src="../../../assets/cyborg.svg" />
+      </div>
+      <div [hidden]="!(message === messageOpts[2])" class="center img-container">
+        <img class="img" src="../../../assets/penguin.svg" />
+      </div>
+      <div [hidden]="!(message === messageOpts[3])" class="center img-container">
         <img class="img" src="../../../assets/pepe.svg" />
       </div>
       <div class="center column">
