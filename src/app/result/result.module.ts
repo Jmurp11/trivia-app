@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ResultsComponent } from './results/results.component';
 import { ResultRoutingModule } from './result-routing.module';
+import { ResultDetailComponent } from './result-detail/result-detail.component';
 
 
 
 @NgModule({
-  declarations: [ResultComponent, ResultsComponent],
+  declarations: [ResultComponent, ResultsComponent, ResultDetailComponent],
   imports: [
     CommonModule,
     FormsModule,
