@@ -1,0 +1,30 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="dismiss()"
+      ><ion-icon slot="icon-only" name="close"></ion-icon
+    ></ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content [fullscreen]="true">
+  <div *ngFor="let d of details">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ d.question }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div>
+          <ion-button
+            [hidden]="d.selected === d.correct"
+            expand="block"
+            color="danger"
+            >{{ d.selected }}</ion-button
+          >
+          <ion-button expand="block" color="success">{{
+            d.correct
+          }}</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

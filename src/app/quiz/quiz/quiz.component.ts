@@ -13,6 +13,7 @@ export class QuizComponent implements OnInit {
   currentQIndex: number;
   score: number;
   quizLength: number;
+  counter: number;
   results: {
     question: string;
     selected: string;
@@ -24,6 +25,7 @@ export class QuizComponent implements OnInit {
 
   ngOnInit() {
     this.score = 0;
+    this.counter = 0;
     this.questions = this.router.getCurrentNavigation().extras.state.quiz;
     this.triviaType = this.router.getCurrentNavigation().extras.state.triviaType;
     this.quizLength = this.questions.length;
@@ -56,9 +58,10 @@ export class QuizComponent implements OnInit {
         score: this.score,
         length: this.quizLength
       };
-      this.router.navigate(['result'], { state: { result } });
+      this.router.navigate(['result'], { state: { result, details: this.results } });
       return;
     }
+    this.counter = this.counter + 1;
     this.currentQIndex = this.indexOfNextQuestion(this.questions);
     this.currentQuestion = this.questions[this.currentQIndex];
   }
