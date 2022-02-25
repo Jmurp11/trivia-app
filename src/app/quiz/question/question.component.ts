@@ -25,6 +25,9 @@ export class QuestionComponent implements OnInit, OnChanges {
   @Input()
   question: Question;
 
+  @Input()
+  questionNum: number;
+
   @Output()
   newAnswerEvent = new EventEmitter<OutputVal>();
 

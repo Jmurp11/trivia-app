@@ -42,7 +42,6 @@ export class QuizService {
       { id: 22, value: 'Geography' },
       { id: 23, value: 'History' },
       { id: 24, value: 'Politics' },
-      { id: 25, value: 'Art' },
       { id: 26, value: 'Celebrities' },
       { id: 27, value: 'Animals' },
       { id: 28, value: 'Vehicles' },
