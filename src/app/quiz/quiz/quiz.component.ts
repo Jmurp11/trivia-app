@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UtilitiesService } from 'src/app/utilities.service';
 import { Question } from '../Question';
 
 @Component({
@@ -27,7 +28,8 @@ export class QuizComponent implements OnInit {
     this.score = 0;
     this.counter = 0;
     this.questions = this.router.getCurrentNavigation().extras.state.quiz;
-    this.triviaType = this.router.getCurrentNavigation().extras.state.triviaType;
+    this.triviaType =
+      this.router.getCurrentNavigation().extras.state.triviaType;
     this.quizLength = this.questions.length;
     this.setCurrentQuestion();
   }
@@ -36,14 +38,14 @@ export class QuizComponent implements OnInit {
     this.results.push({
       question: this.currentQuestion.question,
       selected: event.selected,
-      correct: event.correct
+      correct: event.correct,
     });
     this.questions = this.removeQuestion(
       this.questions,
       this.questions[this.currentQIndex].question
     );
 
-    this.incrementScore((event.correct === event.selected));
+    this.incrementScore(event.correct === event.selected);
     this.setCurrentQuestion();
   }
 
@@ -56,9 +58,11 @@ export class QuizComponent implements OnInit {
       const result = {
         results: this.results,
         score: this.score,
-        length: this.quizLength
+        length: this.quizLength,
       };
-      this.router.navigate(['result'], { state: { result, details: this.results } });
+      this.router.navigate(['result'], {
+        state: { result, details: this.results },
+      });
       return;
     }
     this.counter = this.counter + 1;

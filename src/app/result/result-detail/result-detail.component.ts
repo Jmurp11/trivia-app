@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-result-detail',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './result-detail.component.html',
   styleUrls: ['./result-detail.component.scss'],
 })

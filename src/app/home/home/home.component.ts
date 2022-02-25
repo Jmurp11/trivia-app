@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { IonRouterOutlet } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
+import { Observable, of } from 'rxjs';
 import { ModalComponent } from '../modal/modal.component';
 import { Quiz, QuizService } from '../quiz.service';
 
@@ -11,7 +12,7 @@ import { Quiz, QuizService } from '../quiz.service';
 })
 export class HomeComponent implements OnInit {
   title: string;
-  quizList: Quiz[];
+  quizList$: Observable<Quiz[]>;
   modalOpen: boolean;
   constructor(
     private quizService: QuizService,
@@ -23,16 +24,21 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.modalOpen = false;
-    this.quizList = this.quizService.getAvailableQuizzes();
+    this.quizList$ = of(
+      this.quizService
+        .getAvailableQuizzes()
+        .sort((a, b) => a.value.localeCompare(b.value))
+    );
   }
 
   async presentModal() {
+
     const modal = await this.modalController.create({
       component: ModalComponent,
       swipeToClose: true,
       presentingElement: this.routerOutlet.nativeEl,
       componentProps: {
-        list: this.quizList,
+        quizList$: this.quizList$,
       },
     });
     return await modal.present();
