@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -7,6 +7,12 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./result-detail.component.scss'],
 })
 export class ResultDetailComponent implements OnInit {
+  @Input()
+  details: {
+    question: string;
+    selected: string;
+    correct: string;
+  }[];
 
   constructor(private modalController: ModalController) {}
 

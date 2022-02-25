@@ -25,7 +25,7 @@ export class ResultsComponent implements OnInit {
     question: string;
     selected: string;
     correct: string;
-  };
+  }[];
   score: number;
   message: string;
   isPassing: boolean;
