@@ -1,5 +1,8 @@
 <ion-content [fullscreen]="true">
-  <ion-card class="center padding">
+  <div [hidden]="result" class="center">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+  <ion-card [hidden]="!result" class="center padding">
     <div class="column">
       <div [hidden]="!(message === messageOpts[0])" class="center img-container">
         <img class="img" src="../../../assets/trophy.svg" />

@@ -40,15 +40,19 @@ export class ResultsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    if (!this.router.getCurrentNavigation().extras.state) {
+      this.backToHome();
+    }
     this.result = this.router.getCurrentNavigation().extras.state.result;
     this.details = this.router.getCurrentNavigation().extras.state.details;
+
     this.score = (this.result.score / this.result.length) * 100;
     this.message = this.setMessage(this.score);
     this.messageOpts = [
       MessageOpts.PERFECT,
       MessageOpts.ABOVE_AVG,
       MessageOpts.BELOW_AVG,
-      MessageOpts.BAD
+      MessageOpts.BAD,
     ];
   }
 
@@ -59,8 +63,10 @@ export class ResultsComponent implements OnInit {
       return MessageOpts.ABOVE_AVG;
     } else if (score >= 60 && score < 80) {
       return MessageOpts.BELOW_AVG;
-    } else {
+    } else if (score < 60) {
       return MessageOpts.BAD;
+    } else {
+      return;
     }
   }
 
