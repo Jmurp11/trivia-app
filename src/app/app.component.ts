@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
+import { Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { getAnalytics } from 'firebase/analytics';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {
+  constructor(private meta: Meta) {
     const firebaseConfig = {
       apiKey: 'AIzaSyAegNEma9m891YOgVKXCkK__OAn-hOvIf4',
       authDomain: 'trivaster-app.firebaseapp.com',
@@ -24,5 +25,13 @@ export class AppComponent {
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+
+    this.meta.addTags([
+      { name: 'description', content: 'This is a free trivia game.' },
+      {
+        name: 'keywords',
+        content: 'trivia, mythology, sports, science, education, automobile, vehicle, computer, movies, celebrities, television, music',
+      },
+    ]);
   }
 }

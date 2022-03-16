@@ -1396,8 +1396,5 @@ sub {
 .text-wrap {
   overflow: hidden;
 }
-.secondary {
-  color: var(--ion-color-secondary);
-}
 
 /*# sourceMappingURL=styles.css.map*/

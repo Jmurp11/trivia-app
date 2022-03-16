@@ -40,11 +40,11 @@ const routes = [
     },
     {
         path: 'auth',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_auth_auth_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./auth/auth.module */ 9209)).then(m => m.AuthPageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_auth_auth_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./auth/auth.module */ 9209)).then(m => m.AuthPageModule)
     },
     {
         path: 'home',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_header_header_module_ts-src_app_home_quiz_service_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_home_home_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 8890)).then(m => m.HomePageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_home_home_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 8890)).then(m => m.HomePageModule)
     },
     {
         path: 'quiz/:type',
@@ -52,11 +52,7 @@ const routes = [
     },
     {
         path: 'result',
-        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_result_result_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./result/result.module */ 158)).then(m => m.ResultModule)
-    },
-    {
-        path: 'profile',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_header_header_module_ts-src_app_home_quiz_service_ts"), __webpack_require__.e("src_app_profile_profile_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./profile/profile.module */ 330)).then(m => m.ProfileModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_result_result_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./result/result.module */ 158)).then(m => m.ResultModule)
     },
     {
         path: '**',
