@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { QuizService } from './quiz.service';
 import { ModalComponent } from './modal/modal.component';
 import { HeaderModule } from '../header/header.module';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { HeaderModule } from '../header/header.module';
     IonicModule,
     HomePageRoutingModule,
     HttpClientModule,
-    HeaderModule
+    HeaderModule,
+    AdsenseModule
   ],
   declarations: [HomePage, QuizListComponent, HomeComponent, ModalComponent],
   providers: [QuizService],
