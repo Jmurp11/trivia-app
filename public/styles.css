@@ -1394,7 +1394,10 @@ sub {
   padding: 0.5em;
 }
 .text-wrap {
-  overflow-wrap: break-word;
+  overflow: hidden;
+}
+.secondary {
+  color: var(--ion-color-secondary);
 }
 
 /*# sourceMappingURL=styles.css.map*/

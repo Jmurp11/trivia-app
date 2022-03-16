@@ -7,8 +7,7 @@ import { ResultsComponent } from './results/results.component';
 import { ResultRoutingModule } from './result-routing.module';
 import { ResultDetailComponent } from './result-detail/result-detail.component';
 import { HeaderModule } from '../header/header.module';
-
-
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [ResultComponent, ResultsComponent, ResultDetailComponent],
@@ -17,7 +16,8 @@ import { HeaderModule } from '../header/header.module';
     FormsModule,
     IonicModule,
     HeaderModule,
-    ResultRoutingModule
+    ResultRoutingModule,
+    AdsenseModule
   ]
 })
 export class ResultModule { }

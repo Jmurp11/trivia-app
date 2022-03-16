@@ -13,6 +13,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizService } from '../home/quiz.service';
 import { UserDataComponent } from './user-data/user-data.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { UserDataComponent } from './user-data/user-data.component';
     IonicModule,
     ProfileRoutingModule,
     HeaderModule,
-    HttpClientModule
+    HttpClientModule,
+    AdsenseModule
   ],
   declarations: [ProfilePage, ProfileComponent, UserInfoComponent, UserDataComponent],
   providers: [QuizService]

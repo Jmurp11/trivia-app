@@ -39,8 +39,12 @@ const routes = [
         pathMatch: 'full'
     },
     {
+        path: 'auth',
+        loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_auth_auth_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./auth/auth.module */ 9209)).then(m => m.AuthPageModule)
+    },
+    {
         path: 'home',
-        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e("src_app_home_home_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 8890)).then(m => m.HomePageModule)
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_header_header_module_ts-src_app_home_quiz_service_ts"), __webpack_require__.e("common"), __webpack_require__.e("src_app_home_home_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./home/home.module */ 8890)).then(m => m.HomePageModule)
     },
     {
         path: 'quiz/:type',
@@ -51,10 +55,14 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() */ "src_app_result_result_module_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./result/result.module */ 158)).then(m => m.ResultModule)
     },
     {
+        path: 'profile',
+        loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("default-src_app_header_header_module_ts-src_app_home_quiz_service_ts"), __webpack_require__.e("src_app_profile_profile_module_ts")]).then(__webpack_require__.bind(__webpack_require__, /*! ./profile/profile.module */ 330)).then(m => m.ProfileModule)
+    },
+    {
         path: '**',
         redirectTo: 'home',
         pathMatch: 'full'
-    },
+    }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -139,10 +147,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 1838);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 789);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ 5241);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ 9538);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 9538);
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ 585);
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component */ 6104);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app-routing.module */ 8438);
+/* harmony import */ var ng2_adsense__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ng2-adsense */ 6398);
+
 
 
 
@@ -156,8 +166,11 @@ AppModule = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
     (0,_angular_core__WEBPACK_IMPORTED_MODULE_3__.NgModule)({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.BrowserModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule],
-        providers: [{ provide: _angular_router__WEBPACK_IMPORTED_MODULE_6__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicRouteStrategy }],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.BrowserModule, _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicModule.forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_1__.AppRoutingModule, ng2_adsense__WEBPACK_IMPORTED_MODULE_6__.AdsenseModule.forRoot({
+                adClient: 'ca-pub-2171939668677836',
+                adSlot: '7259870550'
+            })],
+        providers: [{ provide: _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouteReuseStrategy, useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__.IonicRouteStrategy }],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
     })
 ], AppModule);
