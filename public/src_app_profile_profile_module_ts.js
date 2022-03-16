@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<app-header></app-header>\n\n<ion-content>\n  <app-user-info [user]=\"user\"></app-user-info>\n\n  <app-user-data [quiz]=\"quiz.getAvailableQuizzes()\" [user]=\"user\"></app-user-data>\n</ion-content>\n\n<ion-footer>\n  <ng-adsense [height]=\"25\" [width]=\"100\"></ng-adsense>\n</ion-footer>");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<app-header></app-header>\n\n<ion-content>\n  <app-user-info [user]=\"user\"></app-user-info>\n\n  <app-user-data [quiz]=\"quiz.getAvailableQuizzes()\" [user]=\"user\"></app-user-data>\n</ion-content>\n\n<ion-footer>\n  <ng-adsense [height]=\"10\" [width]=\"100\"></ng-adsense>\n</ion-footer>");
 
 /***/ }),
 

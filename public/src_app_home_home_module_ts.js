@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<app-header></app-header>\n\n<ion-content [fullscreen]=\"true\">\n  <div class=\"center img-container\">\n    <img class=\"img\" src=\"../../../assets/owl.svg\" />\n  </div>\n  <div class=\"center\">\n    <ion-button size=\"large\" (click)=\"presentModal()\">Start</ion-button>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <ng-adsense [height]=\"25\" [width]=\"100\"></ng-adsense>\n</ion-footer>\n");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("<app-header></app-header>\n\n<ion-content [fullscreen]=\"true\">\n  <div class=\"center img-container\">\n    <img class=\"img\" src=\"../../../assets/owl.svg\" />\n  </div>\n  <div class=\"center\">\n    <ion-button size=\"large\" (click)=\"presentModal()\">Start</ion-button>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <ng-adsense [height]=\"10\" [width]=\"100\"></ng-adsense>\n</ion-footer>\n");
 
 /***/ }),
 
