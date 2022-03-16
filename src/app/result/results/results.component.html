@@ -1,19 +1,33 @@
+<app-header></app-header>
+
 <ion-content [fullscreen]="true">
   <div [hidden]="result" class="center">
     <ion-spinner color="primary"></ion-spinner>
   </div>
   <ion-card [hidden]="!result" class="center padding">
     <div class="column">
-      <div [hidden]="!(message === messageOpts[0])" class="center img-container">
+      <div
+        [hidden]="!(message === messageOpts[0])"
+        class="center img-container"
+      >
         <img class="img" src="../../../assets/trophy.svg" />
       </div>
-      <div [hidden]="!(message === messageOpts[1])" class="center img-container">
+      <div
+        [hidden]="!(message === messageOpts[1])"
+        class="center img-container"
+      >
         <img class="img" src="../../../assets/cyborg.svg" />
       </div>
-      <div [hidden]="!(message === messageOpts[2])" class="center img-container">
+      <div
+        [hidden]="!(message === messageOpts[2])"
+        class="center img-container"
+      >
         <img class="img" src="../../../assets/penguin.svg" />
       </div>
-      <div [hidden]="!(message === messageOpts[3])" class="center img-container">
+      <div
+        [hidden]="!(message === messageOpts[3])"
+        class="center img-container"
+      >
         <img class="img" src="../../../assets/pepe.svg" />
       </div>
       <div class="center column">
@@ -21,11 +35,13 @@
         <h3>{{ score }}% Score</h3>
       </div>
       <div class="center padding-bottom">
-        <ion-button size="small" color="secondary" (click)="presentModal()">See Details</ion-button>
+        <ion-button size="small" color="secondary" (click)="presentModal()"
+          >See Details</ion-button
+        >
       </div>
     </div>
   </ion-card>
   <div class="center">
-    <ion-button size="large" (click)="backToHome()">Return Home</ion-button>
+    <ion-button size="large" (click)="backToHome()">Play Again!</ion-button>
   </div>
 </ion-content>

@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { ResultsComponent } from './results/results.component';
 import { ResultRoutingModule } from './result-routing.module';
 import { ResultDetailComponent } from './result-detail/result-detail.component';
+import { HeaderModule } from '../header/header.module';
 
 
 
@@ -15,6 +16,7 @@ import { ResultDetailComponent } from './result-detail/result-detail.component';
     CommonModule,
     FormsModule,
     IonicModule,
+    HeaderModule,
     ResultRoutingModule
   ]
 })

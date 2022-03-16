@@ -10,6 +10,7 @@ import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { HomeComponent } from './home/home.component';
 import { QuizService } from './quiz.service';
 import { ModalComponent } from './modal/modal.component';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HeaderModule
   ],
   declarations: [HomePage, QuizListComponent, HomeComponent, ModalComponent],
   providers: [QuizService],
