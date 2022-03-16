@@ -1,15 +1,5 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>{{ title }}</ion-title>
-    <ion-buttons slot="start" *ngIf="router.url === '/profile' || router.url === '/auth'">
-      <ion-button color="primary" (click)="navigate('home')">
-        <ion-icon slot="icon-only" name="home"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-buttons slot="end" *ngIf="router.url !== '/profile' && router.url !== '/auth'">
-      <ion-button color="primary" (click)="checkLogin()">
-        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
